@@ -362,7 +362,7 @@ export const buildReport = createServerFn({ method: "GET" })
     let findingQuery = sb
       .from("findings")
       .select(
-        "id, title, summary, detection_reason, risk_level, confidence, facts, inference, uncertainty, status, finding_evidence(evidence(evidence_text, location_reference, intelligence_sources(title, source_type, original_filename))))",
+        "id, title, summary, detection_reason, risk_level, confidence, facts, inference, uncertainty, status, finding_evidence(evidence(evidence_text, location_reference, intelligence_sources(title, source_type, original_filename)))",
       )
       .eq("investigation_id", data.investigationId)
       .order("risk_level");

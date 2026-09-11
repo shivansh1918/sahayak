@@ -50,7 +50,7 @@ export function RiskBadge({ level }: { level: string | null }) {
     <span
       className={cn(
         "inline-flex items-center rounded-full border px-2 py-0.5 text-[11px] font-medium uppercase tracking-wider",
-        RISK_CLASS[key] ?? RISK_CLASS.informational,
+        RISK_CLASS[key] ?? RISK_CLASS["informational"],
       )}
     >
       {key.replace(/_/g, " ")}

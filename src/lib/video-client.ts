@@ -37,7 +37,7 @@ function encodeWav(channel: Float32Array, sampleRate: number): Blob {
   view.setUint32(40, channel.length * 2, true);
   let offset = 44;
   for (let i = 0; i < channel.length; i++) {
-    const s = Math.max(-1, Math.min(1, channel[i]));
+    const s = Math.max(-1, Math.min(1, channel[i] ?? 0));
     view.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7fff, true);
     offset += 2;
   }

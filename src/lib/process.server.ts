@@ -39,7 +39,7 @@ async function startJob(
       provider,
       job_type: jobType,
       status: "running",
-      request_metadata: requestMetadata,
+      request_metadata: requestMetadata as never,
       started_at: new Date().toISOString(),
     })
     .select("id")
@@ -60,7 +60,7 @@ async function finishJob(
       status,
       completed_at: new Date().toISOString(),
       external_job_id: payload.external_job_id ?? null,
-      response_metadata: payload.response_metadata ?? {},
+      response_metadata: (payload.response_metadata ?? {}) as never,
       error_message: payload.error_message ?? null,
     })
     .eq("id", jobId);
@@ -117,7 +117,7 @@ export async function runSourcePipeline(
     const type = source.source_type;
 
     if (type === "pdf" || type === "image") {
-      const bytes = await download(sb, source.storage_bucket, source.storage_path);
+      const bytes = await download(sb, source.storage_bucket!, source.storage_path!);
       const jobId = await startJob(sb, source.id, "sarvam", "document_digitise", {
         filename: source.original_filename,
         bytes: bytes.length,
@@ -125,8 +125,8 @@ export async function runSourcePipeline(
       try {
         const result = await digitiseDocument({
           bytes,
-          filename: source.original_filename,
-          mime: source.mime_type,
+          filename: source.original_filename ?? "source",
+          mime: source.mime_type ?? "application/octet-stream",
           isPdf: type === "pdf",
           language: source.original_language,
         });
@@ -154,7 +154,7 @@ export async function runSourcePipeline(
         throw err;
       }
     } else if (type === "audio") {
-      const bytes = await download(sb, source.storage_bucket, source.storage_path);
+      const bytes = await download(sb, source.storage_bucket!, source.storage_path!);
       const jobId = await startJob(sb, source.id, "sarvam", "speech_to_text", {
         filename: source.original_filename,
         bytes: bytes.length,
@@ -162,8 +162,8 @@ export async function runSourcePipeline(
       try {
         const result = await transcribeAudio({
           bytes,
-          filename: source.original_filename,
-          mime: source.mime_type,
+          filename: source.original_filename ?? "source",
+          mime: source.mime_type ?? "application/octet-stream",
         });
         await finishJob(sb, jobId, "succeeded", {
           response_metadata: { language: result.language, segments: result.segments.length },
@@ -283,12 +283,12 @@ export async function runSourcePipeline(
         if (fErr) throw new Error(fErr.message);
 
         const visualLines: string[] = [];
-        for (const frame of (inserted ?? []).sort((a, b) => a.frame_index - b.frame_index)) {
+        for (const frame of (inserted ?? []).sort((a, b) => (a.frame_index ?? 0) - (b.frame_index ?? 0))) {
           const jobId = await startJob(sb, source.id, "lovable-ai", "frame_analysis", {
             frame_index: frame.frame_index,
           });
           try {
-            const bytes = await download(sb, "video-derived", frame.storage_path);
+            const bytes = await download(sb, "video-derived", frame.storage_path!);
             const analysis = await analyzeImage({
               dataUrl: `data:image/jpeg;base64,${toBase64(bytes)}`,
               hint: `Frame sampled at ${formatTime(frame.timestamp_seconds)} of a video source.`,
@@ -333,14 +333,14 @@ export async function runSourcePipeline(
       if (!parts.length) throw new Error("Neither speech nor visual content could be extracted from this video.");
       originalContent = parts.join("\n\n");
     } else {
-      const bytes = await download(sb, source.storage_bucket, source.storage_path);
+      const bytes = await download(sb, source.storage_bucket!, source.storage_path!);
       const text = new TextDecoder().decode(bytes);
       if (!text.trim()) throw new Error("This file contains no readable text.");
       const normalized = normalizeTextSource(text, type);
       originalContent = normalized.normalized;
       await sb
         .from("intelligence_sources")
-        .update({ metadata: { ...(source.metadata as object), ...normalized.metadata } })
+        .update({ metadata: { ...(source.metadata as object), ...normalized.metadata } as never })
         .eq("id", source.id);
     }
 

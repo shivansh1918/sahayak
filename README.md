@@ -1,35 +1,103 @@
-<div align="center">
-
 # ◈ SAHAYAK
 
 ### Multimodal Intelligence Analysis Platform
 
-**Turn fragmented signals into structured intelligence.**
+**From Fragmented Signals to Structured Intelligence**
 
-[![Live Demo](https://img.shields.io/badge/🚀%20LIVE%20DEMO-SAHAYAK-7C3AED?style=for-the-badge)](https://sahayak-gules-xi.vercel.app/)
-[![GitHub](https://img.shields.io/badge/GITHUB-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/)
-[![React](https://img.shields.io/badge/REACT-61DAFB?style=for-the-badge&logo=react&logoColor=111827)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TYPESCRIPT-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Supabase](https://img.shields.io/badge/SUPABASE-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com/)
-[![Sarvam AI](https://img.shields.io/badge/SARVAM%20AI-111827?style=for-the-badge)](https://www.sarvam.ai/)
+<p align="center">
+  <a href="https://sahayak-gules-xi.vercel.app/">
+    <img src="https://img.shields.io/badge/%F0%9F%9A%80%20LIVE%20DEMO-SAHAYAK-7C3AED?style=for-the-badge" alt="Live Demo" />
+  </a>
+  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=111827" alt="React" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase" />
+  <img src="https://img.shields.io/badge/Sarvam%20AI-111827?style=for-the-badge" alt="Sarvam AI" />
+</p>
 
-<br>
+<p align="center">
+  <strong>Connect. Correlate. Explain.</strong>
+</p>
 
-<a href="https://sahayak-gules-xi.vercel.app/">
-  <strong>✦ ENTER SAHAYAK →</strong>
-</a>
-
-</div>
+<p align="center">
+  <a href="https://sahayak-gules-xi.vercel.app/">
+    <strong>✦ ENTER SAHAYAK →</strong>
+  </a>
+</p>
 
 ---
 
-## ◈ The Problem
+## ◈ Overview
 
-Security and intelligence teams deal with information scattered across:
+Security and intelligence teams work with information scattered across multiple sources, formats, systems and languages.
+
+Important signals may exist across:
+
+- Documents
+- Reports
+- Images
+- Audio
+- Voice recordings
+- Video
+- Text
+- Communications
+- Logs
+- Structured data
+
+The challenge is not simply generating another summary.
+
+The real challenge is:
+
+> **Connecting weak signals across different sources without losing the evidence behind them.**
+
+**SAHAYAK** is a multimodal intelligence analysis platform designed to transform fragmented information into a structured, connected and explainable intelligence picture.
+
+---
+
+# ◈ The Core Idea
 
 ```text
-DOCUMENTS     IMAGES       AUDIO
-     │            │           │
-     ├────────────┼───────────┤
-     │            │           │
-   VIDEO        TEXT         LOGS
+┌────────────────────────────────────────────────────┐
+│                 FRAGMENTED SIGNALS                 │
+│                                                    │
+│  PDF • IMAGE • AUDIO • VIDEO • TEXT • LOGS        │
+└────────────────────────┬───────────────────────────┘
+                         │
+                         ▼
+                ┌─────────────────┐
+                │  AI PROCESSING  │
+                └────────┬────────┘
+                         │
+          ┌──────────────┼──────────────┐
+          ▼              ▼              ▼
+      ENTITIES         EVENTS      OBSERVATIONS
+          │              │              │
+          └──────────────┼──────────────┘
+                         ▼
+               RELATIONSHIP DISCOVERY
+                         │
+                         ▼
+                CROSS-SOURCE CORRELATION
+                         │
+                         ▼
+                 WEAK SIGNAL DETECTION
+                         │
+                         ▼
+                   KNOWLEDGE GRAPH
+                         │
+                         ▼
+                EXPLAINABLE FINDINGS
+                         │
+                ┌────────┼────────┐
+                ▼        ▼        ▼
+              FACTS   INFERENCE  UNCERTAINTY
+                │        │        │
+                └────────┼────────┘
+                         ▼
+                  EVIDENCE JOURNEY
+                         │
+                         ▼
+                  ORIGINAL SOURCE
+                         │
+                         ▼
+                 HUMAN ANALYST
+                     DECISION

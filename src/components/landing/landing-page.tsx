@@ -141,15 +141,15 @@ function SignalMap() {
 
 function Hero() {
   return (
-    <section id="top" className="relative min-h-[calc(100svh-4rem)] overflow-hidden border-b border-border/60">
+    <section id="top" className="relative overflow-hidden border-b border-border/60 lg:min-h-[min(52rem,calc(100svh-4rem))]">
       <div className="landing-grid absolute inset-0" aria-hidden="true" />
-      <div className="relative mx-auto grid min-h-[calc(100svh-4rem)] max-w-7xl items-center gap-10 px-5 py-16 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-20">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-5 py-12 sm:px-6 sm:py-16 lg:min-h-[min(52rem,calc(100svh-4rem))] lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-16">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 border border-primary/25 bg-primary/5 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-primary">
             <span className="size-1.5 rounded-full bg-primary motion-safe:animate-pulse" /> Multimodal intelligence analysis
           </div>
-          <h1 className="mt-7 text-balance text-5xl font-semibold uppercase leading-[0.98] text-foreground sm:text-6xl lg:text-7xl">Turn fragmented signals into structured intelligence</h1>
-          <p className="mt-7 max-w-2xl text-pretty text-lg leading-8 text-muted-foreground">SAHAYAK brings documents, images, audio, video, text and logs into one evidence-backed model—so analysts can find connections without losing sight of the source.</p>
+          <h1 className="mt-7 text-balance text-[2.6rem] font-semibold uppercase leading-[0.98] text-foreground sm:text-6xl lg:text-7xl">Turn fragmented signals into structured intelligence</h1>
+          <p className="mt-7 max-w-2xl text-pretty text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">SAHAYAK brings documents, images, audio, video, text and logs into one evidence-backed model—so analysts can find connections without losing sight of the source.</p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg" className="h-12 px-6"><Link to="/auth">Enter SAHAYAK <ArrowRight /></Link></Button>
             <Button asChild variant="outline" size="lg" className="h-12 px-6"><a href="#how-it-works">See how it works <ChevronDown /></a></Button>
@@ -158,9 +158,9 @@ function Hero() {
             {["Source-preserving", "Evidence-linked", "Analyst controlled"].map((item) => <span key={item} className="inline-flex items-center gap-2"><Check className="size-3.5 text-verified" />{item}</span>)}
           </div>
         </div>
-        <SignalMap />
+        <div className="hidden lg:block"><SignalMap /></div>
       </div>
-      <div className="absolute bottom-0 left-1/2 hidden -translate-x-1/2 items-center gap-3 pb-5 font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground lg:flex"><span className="h-px w-12 bg-border" /> Follow the signal <span className="h-px w-12 bg-border" /></div>
+      <div className="absolute bottom-0 left-1/2 hidden -translate-x-1/2 items-center gap-3 pb-4 font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground lg:flex"><span className="h-px w-12 bg-border" /> Follow the signal <span className="h-px w-12 bg-border" /></div>
     </section>
   );
 }
@@ -309,7 +309,7 @@ function AnalystSection() {
         <SectionHeading eyebrow="Analyst in the loop" title="AI surfaces the signal. The analyst makes the call." body="SAHAYAK presents evidence-backed findings with confidence and uncertainty. Analysts approve, reject, request further investigation or add context before anything becomes a decision." />
         <div className="border border-border bg-background shadow-[var(--shadow-panel)]">
           <div className="flex items-center justify-between border-b border-border px-5 py-4"><span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Finding review</span><span className="border border-caution/40 bg-caution/10 px-2 py-1 font-mono text-[9px] uppercase text-caution">Awaiting review</span></div>
-          <div className="p-5 sm:p-7"><p className="text-lg font-semibold text-foreground">Repeated co-occurrence across source types</p><p className="mt-3 text-sm leading-6 text-muted-foreground">A person reference and device identifier recur across a document, audio segment and technical log.</p><div className="mt-6"><div className="flex justify-between text-xs"><span className="text-muted-foreground">Confidence</span><span className="font-mono text-primary">78%</span></div><div className="mt-2 h-1.5 overflow-hidden rounded-full bg-muted"><div className="h-full w-[78%] bg-primary" /></div></div><div className="mt-7 grid gap-2 sm:grid-cols-2">{[[Check,"Approve"],[X,"Reject"],[Search,"Investigate further"],[FileText,"Add note"]].map(([Icon,label]) => { const Graphic=Icon as typeof Check; return <Button key={String(label)} variant="outline" className="justify-start"><Graphic />{label as string}</Button>; })}</div></div>
+          <div className="p-5 sm:p-7"><p className="text-lg font-semibold text-foreground">Repeated co-occurrence across source types</p><p className="mt-3 text-sm leading-6 text-muted-foreground">A person reference and device identifier recur across a document, audio segment and technical log.</p><div className="mt-6"><div className="flex justify-between text-xs"><span className="text-muted-foreground">Confidence</span><span className="font-mono text-primary">78%</span></div><div className="mt-2 h-1.5 overflow-hidden rounded-full bg-muted"><div className="h-full w-[78%] bg-primary" /></div></div><div className="mt-7 grid gap-2 sm:grid-cols-2">{[[Check,"Approve"],[X,"Reject"],[Search,"Investigate further"],[FileText,"Add note"]].map(([Icon,label]) => { const Graphic=Icon as typeof Check; return <div key={String(label)} className="flex h-9 items-center gap-2 rounded-md border border-input bg-background px-4 text-sm font-medium text-muted-foreground"><Graphic className="size-4" />{label as string}</div>; })}</div></div>
         </div>
       </div>
     </section>

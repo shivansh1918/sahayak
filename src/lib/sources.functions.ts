@@ -152,7 +152,7 @@ export const registerSource = createServerFn({ method: "POST" })
         original_filename: data.originalFilename,
         file_size: data.fileSize,
         original_language: data.language,
-        processing_status: "pending",
+        processing_status: "uploaded",
         content_hash: data.contentHash,
         created_by: context.userId,
         metadata: data.videoArtifacts ? { video: data.videoArtifacts } : {},

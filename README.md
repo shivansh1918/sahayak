@@ -13,7 +13,7 @@
 
 ## 🌐 Live Application
 
-### 🚀 [Open SAHAYAK →](YOUR_DEPLOYED_URL)
+### 🚀 [Open SAHAYAK →](sahayak-gules-xi.vercel.app)
 
 SAHAYAK is a multimodal intelligence analysis platform that transforms fragmented information from **documents, images, audio, video, text and logs** into a connected and explainable intelligence picture.
 

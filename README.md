@@ -2,7 +2,7 @@
 
 > **From Fragmented Signals to Structured Intelligence**
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-7C3AED?style=for-the-badge)](YOUR_DEPLOYED_URL)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-7C3AED?style=for-the-badge)](sahayak-gules-xi.vercel.app)
 [![Built with React](https://img.shields.io/badge/Frontend-React-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://react.dev/)
 [![Supabase](https://img.shields.io/badge/Backend-Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com/)
 [![Sarvam AI](https://img.shields.io/badge/AI-Sarvam-111827?style=for-the-badge)](https://www.sarvam.ai/)

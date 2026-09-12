@@ -175,7 +175,7 @@ export const deleteSource = createServerFn({ method: "POST" })
     const { error } = await context.supabase.from("intelligence_sources").delete().eq("id", data.sourceId);
     if (error) throw new Error(error.message);
     if (source) {
-      await context.supabase.storage.from(source.storage_bucket).remove([source.storage_path]);
+      await context.supabase.storage.from(source.storage_bucket!).remove([source.storage_path!]);
     }
     return { ok: true };
   });
@@ -246,7 +246,7 @@ export const getSourceDetail = createServerFn({ method: "GET" })
         .eq("transcript_id", transcript.data.id)
         .order("start_time", { nullsFirst: true })
         .limit(2000);
-      segments = seg.data ?? [];
+      segments = (seg.data ?? []).map((r) => ({ ...r, text: r.text ?? "" }));
     }
 
     return {
